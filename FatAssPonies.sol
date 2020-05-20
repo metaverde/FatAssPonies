@@ -3,6 +3,10 @@ pragma solidity 0.5.12;
 import "./Ownable.sol";
 import "./Destroyable.sol";
 
+/* Okay... now I'm adding asserts
+I discovered that I don't have to use the entire struct in the hash, obviously.
+I should be careful to use unique Identifiers.*/
+
 /* Okay... all I'm doing in this contract is creating ponies using a pony struct,
 mapping the creator address to the pony struct, then pushing the address to an array
 and the structs to a separate array. As these are occurring simultaneously
@@ -56,8 +60,32 @@ contract FatAssPonies is Ownable, Destroyable {
         byAddy.push(pony);
         ponies[pony]= newPony;
         
+    
+    
+    
+    assert(
+            keccak256(
+                abi.encodePacked(
+                    ponies[msg.sender].name,
+                    ponies[msg.sender].breed,
+                    ponies[msg.sender].height
+                )
+            )
+            ==
+            keccak256(
+                abi.encodePacked(
+                    newPony.name,
+                    newPony.breed,
+                    newPony.height
+                    
+                )
+            )
+        );
+       
+        
+        
+     
+
     }
-    
-    
-    
+
 }
