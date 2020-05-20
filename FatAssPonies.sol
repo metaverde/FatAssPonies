@@ -3,6 +3,8 @@ pragma solidity 0.5.12;
 import "./Ownable.sol";
 import "./Destroyable.sol";
 
+
+/* Adding event and emit*/
 /* Okay... now I'm adding asserts
 I discovered that I don't have to use the entire struct in the hash, obviously.
 I should be careful to use unique Identifiers.*/
@@ -25,7 +27,7 @@ contract FatAssPonies is Ownable, Destroyable {
         
     }
     
-    
+    event ponyCreated(string name, string breed, string color, bool truePony);
     
     
     Pony [] public deets;
@@ -84,8 +86,13 @@ contract FatAssPonies is Ownable, Destroyable {
        
         
         
-     
+    emit ponyCreated(newPony.name, newPony.breed, newPony.color, newPony.truePony ); 
+    /*Needs to match event in arguments*/
 
     }
 
+    
 }
+
+
+
