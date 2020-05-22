@@ -4,6 +4,7 @@ import "./Ownable.sol";
 import "./Destroyable.sol";
 
 
+/*Adding "withdrawAll()"^/
 /* Adding event and emit*/
 /* Okay... now I'm adding asserts
 I discovered that I don't have to use the entire struct in the hash, obviously.
@@ -36,6 +37,7 @@ contract FatAssPonies is Ownable, Destroyable {
     //Need to push the address to an array separate from the mapping...
     
     uint public balance;
+    
    
     modifier costs(uint cost) {
         require(msg.value >= cost);
@@ -45,6 +47,7 @@ contract FatAssPonies is Ownable, Destroyable {
     
     function createPony(string memory name, string memory breed, uint height, uint weight, string memory color) public payable costs(1 ether){
         address pony = msg.sender;
+        balance += msg.value;
         Pony memory newPony;
         newPony.name = name;
         newPony.breed = breed;
@@ -89,6 +92,13 @@ contract FatAssPonies is Ownable, Destroyable {
     emit ponyCreated(newPony.name, newPony.breed, newPony.color, newPony.truePony ); 
     /*Needs to match event in arguments*/
 
+    }
+    
+    function withdrawAll() public onlyOwner returns(uint) {
+       uint toTransfer = balance;
+       balance = 0;
+       msg.sender.transfer(toTransfer);
+       return toTransfer;
     }
 
     
