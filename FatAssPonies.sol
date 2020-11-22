@@ -3,7 +3,7 @@ pragma solidity 0.5.12;
 import "./Ownable.sol";
 import "./Destroyable.sol";
 
-
+/*A year later looking back at it. How am I going to add images and make this a game and not just a registry?*/
 /*Adding "withdrawAll()"^/
 /* Adding event and emit*/
 /* Okay... now I'm adding asserts
