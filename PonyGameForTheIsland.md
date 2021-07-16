@@ -33,5 +33,5 @@ I am not married to doing this in hardhat.
 If anyone wants to mess around and add sequential registration
 or callability by pony name, please do!
 
-Also, I should just figure out why they won't compile in 8 and hange the code.
-:-|
+Also, I should just figure out why they won't compile in 8 and change the code.
+
