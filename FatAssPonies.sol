@@ -3,6 +3,9 @@ pragma solidity 0.5.12;
 import "./Ownable.sol";
 import "./Destroyable.sol";
 
+/* October 2021... "A year later"... that didn't help. doing CryptoZombies again, and now it makes sense.
+I got stalled out trying to figure out how to do registration numbers and have them match between the addresses and the structs. 
+Now I'm not even sure what that means or why I wanted to do it.*/
 /*A year later looking back at it. How am I going to add images and make this a game and not just a registry?*/
 /*Adding "withdrawAll()"^/
 /* Adding event and emit*/
