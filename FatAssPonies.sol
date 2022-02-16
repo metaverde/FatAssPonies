@@ -1,24 +1,11 @@
-pragma solidity 0.5.12;
+pragma solidity >=0.8.0 <0.9.0;
+//SPDX-License-Identifier: MIT
 
-import "./Ownable.sol";
-import "./Destroyable.sol";
+import "hardhat/console.sol";
+import "@openzeppelin/contracts/access/Ownable.sol"; 
+// https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol
 
-/* October 2021... "A year later"... that didn't help. doing CryptoZombies again, and now it makes sense.
-I got stalled out trying to figure out how to do registration numbers and have them match between the addresses and the structs. 
-Now I'm not even sure what that means or why I wanted to do it.*/
-/*A year later looking back at it. How am I going to add images and make this a game and not just a registry?*/
-/*Adding "withdrawAll()"^/
-/* Adding event and emit*/
-/* Okay... now I'm adding asserts
-I discovered that I don't have to use the entire struct in the hash, obviously.
-I should be careful to use unique Identifiers.*/
-
-/* Okay... all I'm doing in this contract is creating ponies using a pony struct,
-mapping the creator address to the pony struct, then pushing the address to an array
-and the structs to a separate array. As these are occurring simultaneously
-the indices should be the same.*/
-
-contract FatAssPonies is Ownable, Destroyable {
+contract FatAssPonies is Ownable {
     
     struct Pony {
         string name;
@@ -97,15 +84,12 @@ contract FatAssPonies is Ownable, Destroyable {
 
     }
     
-    function withdrawAll() public onlyOwner returns(uint) {
+    function withdrawAll() public payable onlyOwner returns(uint) {
        uint toTransfer = balance;
        balance = 0;
-       msg.sender.transfer(toTransfer);
+       payable(msg.sender).transfer(toTransfer);
        return toTransfer;
     }
 
     
 }
-
-
-
