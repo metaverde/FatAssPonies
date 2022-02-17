@@ -1,6 +1,19 @@
 # FatAssPonies
 A pony game for The Island.
 
+17 Feb 2022
+
+Got the Ponies contract into 8.
+It just needed some "payable" in there.
+Progressing nicely in my coding skills.
+I should be revisiting this regularly to add functionality.
+Pretty sidetracked with Scaffold-Eth Speedrun atm.
+The registration numbers shouldn't be too too hard.
+Still not sure how to think about it.
+
+
+Previously:
+
 I don't know how I don't have a readme for this.
 The Island is equestrian Twitter, or at least the tiny sliver that graces me with their presence.
 ;-)
